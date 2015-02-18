@@ -61,6 +61,10 @@ class Format
       tag: 'IMG'
       attribute: 'src'
 
+    video:
+      tag: 'IFRAME'
+      attribute: 'src'
+
     align:
       type: Format.types.LINE
       style: 'textAlign'
