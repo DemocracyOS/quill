@@ -495,6 +495,22 @@
 .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=image]:hover {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAElBMVEUAAAAAZswAZcwAZs0AZs0AZszYB6XUAAAABXRSTlMAeMTFxj7M9NAAAABBSURBVAjXY2DAD1RDQSAYyAqFABALLANmMRnAWMwODIIMUFnGUAEIS1A0NADMYgTqhLBY4SyEKXCTTcGMEAJuAgBa9RKl6Fva+wAAAABJRU5ErkJggg==");
 }
+.ql-snow.ql-toolbar .ql-format-button.ql-video,
+.ql-snow.ql-toolbar .ql-picker.ql-video .ql-picker-label,
+.ql-snow.ql-toolbar .ql-picker .ql-picker-label[data-value=video],
+.ql-snow.ql-toolbar .ql-picker .ql-picker-item[data-value=video] {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAAYFBMVEUAAACAgIBAQEA5OTlAQEBERERAQEBERERERERERERDQ0NERERERERERERDQ0NERERERERFRUVERERERERFRUVERERERERERERERERERERERERERERERERERERERERERESN6WzHAAAAH3RSTlMAAggJDA8cQEtTWHF/i4yTpau+xMXX3O7v8/f6+/z+qN9w2AAAAFZJREFUeNqlzMcSgCAMRVEsYO+9vv//S9FhNIYld5HFmSTCqQ66dazkRzA1lPSQGRZGIsDMKMxRW7+2yCIcyf/QUyUGSnc+dkaqoFumM32pf2BqY+HUBfQaCPgVIBc1AAAAAElFTkSuQmCC");
+}
+.ql-snow.ql-toolbar .ql-format-button.ql-video.ql-active,
+.ql-snow.ql-toolbar .ql-picker.ql-video .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker .ql-picker-label[data-value=video].ql-active,
+.ql-snow.ql-toolbar .ql-picker .ql-picker-item[data-value=video].ql-selected,
+.ql-snow.ql-toolbar:not(.ios) .ql-format-button.ql-video:hover,
+.ql-snow.ql-toolbar:not(.ios) .ql-picker.ql-video .ql-picker-label:hover,
+.ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-label[data-value=video]:hover,
+.ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=video]:hover {
+  background-image: url("assets/active/video.png");
+}
 .ql-snow.ql-toolbar .ql-format-button.ql-list,
 .ql-snow.ql-toolbar .ql-picker.ql-list .ql-picker-label,
 .ql-snow.ql-toolbar .ql-picker .ql-picker-label[data-value=list],
@@ -745,6 +761,22 @@
   .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-label[data-value=image]:hover,
   .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=image]:hover {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkBAMAAAATLoWrAAAAFVBMVEUAAAAAZ8oAZswAZswAZswAZswAZsx4QzxlAAAABnRSTlMATXjl6OmAFiJpAAAAZklEQVR42sXQsQ3AIAxEUeQZoKdyzwg0DALo9h8hiCYXo4R0/MbSK1ycO5EHlScVpj4Jj97p/vtJPi9U+kptXIlMIY2r1b4XIBpSoDJJFIyYtKohAWBIV8Ke9kv8X7WwtEmBKbkDXfWkWdehkaSCAAAAAElFTkSuQmCC");
+  }
+  .ql-snow.ql-toolbar .ql-format-button.ql-video,
+  .ql-snow.ql-toolbar .ql-picker.ql-video .ql-picker-label,
+  .ql-snow.ql-toolbar .ql-picker .ql-picker-label[data-value=video],
+  .ql-snow.ql-toolbar .ql-picker .ql-picker-item[data-value=video] {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAxlBMVEUAAABVVVUzMzNVVVVJSUlGRkZAQEBJSUlAQEBAQEBAQEBHR0dCQkJGRkZAQEBGRkZCQkJERERDQ0NDQ0NGRkZERERDQ0NFRUVCQkJFRUVERERDQ0NDQ0NFRUVDQ0NERERERERERERERERERERERERERERERERERERFRUVDQ0NERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERfjmwgAAAAQXRSTlMAAwUGBwsMDhAUGBkbHSAhIykuOUJERUpNUVZYXGRne3yAi4+SmqWmq67R1tfY2dve5ujp7/Dy8/T19vf4+fv8/mUg1b0AAACrSURBVDjL5dPFDgJBEEXRxt3d3d11gPv/P8WCEAgZuno/b1WLk1TqJaWUI1Jc8852Mqz5bdHHALDK2CF+ckgYIHp/0GtypxpHYKlFSqkycJeQD7hIKADMJFQHulrkSrYs2MflCnZZgzKvo7RJmZeSAWIf1V3nihSGAG19BUq1gKmEQsBZQkHAklATmOuQN5zvP4COQQWnmIxuFfERWOTsXmrztWg8qHqUU/IEzOhNFx6Ncl4AAAAASUVORK5CYII=");
+  }
+  .ql-snow.ql-toolbar .ql-format-button.ql-video.ql-active,
+  .ql-snow.ql-toolbar .ql-picker.ql-video .ql-picker-label.ql-active,
+  .ql-snow.ql-toolbar .ql-picker .ql-picker-label[data-value=video].ql-active,
+  .ql-snow.ql-toolbar .ql-picker .ql-picker-item[data-value=video].ql-selected,
+  .ql-snow.ql-toolbar:not(.ios) .ql-format-button.ql-video:hover,
+  .ql-snow.ql-toolbar:not(.ios) .ql-picker.ql-video .ql-picker-label:hover,
+  .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-label[data-value=video]:hover,
+  .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=video]:hover {
+    background-image: url("assets/active/video@2x.png");
   }
   .ql-snow.ql-toolbar .ql-format-button.ql-list,
   .ql-snow.ql-toolbar .ql-picker.ql-list .ql-picker-label,
