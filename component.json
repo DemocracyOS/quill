@@ -1,7 +1,7 @@
 {
   "name": "quill",
   "description": "A cross browser rich text editor with an API",
-  "version": "0.19.8",
+  "version": "0.19.10",
   "dependencies": {},
   "main": "index.js",
   "scripts": [
