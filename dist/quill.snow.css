@@ -509,7 +509,7 @@
 .ql-snow.ql-toolbar:not(.ios) .ql-picker.ql-video .ql-picker-label:hover,
 .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-label[data-value=video]:hover,
 .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=video]:hover {
-  background-image: url("assets/active/video.png");
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAb0lEQVQ4y2NgGN6AP/myNBA3A3EDAQxSw8eXdIkRmyFcQPyfFIyklwOIdwJxGIgTRKpBQCwIxJVI/ECQQYFkGISORw2ioUF7sRkUQIZBAkBsDMSP4QZBE9ZbEgx5iJagk4HYD1lAGYjVCWAlhpEHAF6fm2BMJinjAAAAAElFTkSuQmCC");
 }
 .ql-snow.ql-toolbar .ql-format-button.ql-list,
 .ql-snow.ql-toolbar .ql-picker.ql-list .ql-picker-label,
@@ -776,7 +776,7 @@
   .ql-snow.ql-toolbar:not(.ios) .ql-picker.ql-video .ql-picker-label:hover,
   .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-label[data-value=video]:hover,
   .ql-snow.ql-toolbar:not(.ios) .ql-picker .ql-picker-item[data-value=video]:hover {
-    background-image: url("assets/active/video@2x.png");
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAA5klEQVR4Ae3OoUrGcBSG8TOwCDIt2rQLXoDBoGkgKHgHbpq+9hm9Eb0Ai7B/sRq9AwdeglUwDET0+MTDYG5hhwmeF37lnPLIv10sFlu/aNZwC53QB5ZYgQzIIfbwAnXymFfPGaSLX4aEOxt0CXX0iT2IsYpzKBS1DbqHOitMzCFeoX1BNdTZEXaRoMC8QQ0UcAhyEEGIoAiKoFlF0Ake8DUmKEGdHUOwj6ehoBuoswOIUeKtL2gb6uQbLTYhHTmuoEg2SLBA6xD0jjPIL3ZwDRMEbOEU5QQqFNiAjGGCfEVQBEXQX/IDppCzKDFRmOYAAAAASUVORK5CYII=");
   }
   .ql-snow.ql-toolbar .ql-format-button.ql-list,
   .ql-snow.ql-toolbar .ql-picker.ql-list .ql-picker-label,
