@@ -19,6 +19,7 @@ class VideoTooltip extends Tooltip
   constructor: (@quill, @options) ->
     @options = _.defaults(@options, Tooltip.DEFAULTS)
     super(@quill, @options)
+    @embedURL = ''
     @preview = @container.querySelector('.preview')
     @textbox = @container.querySelector('.input')
     dom(@container).addClass('ql-video-tooltip')
@@ -39,13 +40,13 @@ class VideoTooltip extends Tooltip
     )
 
   insertVideo: ->
-    url = this._normalizeURL(@textbox.value)
+    this._normalizeURL(@textbox.value)
     @range = new Range(0, 0) unless @range?   # If we lost the selection somehow, just put image at beginning of document
     if @range
       @preview.innerHTML = '<span>Preview</span>'
       @textbox.value = ''
       index = @range.end
-      @quill.insertEmbed(index, 'video', url, 'user')
+      @quill.insertEmbed(index, 'video', @embedURL, 'user')
       @quill.setSelection(index + 1, index + 1)
     this.hide()
 
@@ -61,6 +62,7 @@ class VideoTooltip extends Tooltip
       @quill.deleteText(range, 'user')
 
   _preview: ->
+    this._normalizeURL(@textbox.value)
     return unless this._matchVideoURL(@textbox.value)
     if @preview.firstChild.tagName == 'IMG'
       @preview.firstChild.setAttribute('src', @textbox.value)
@@ -74,10 +76,36 @@ class VideoTooltip extends Tooltip
     # return /^https?:\/\/.+\.(jpe?g|gif|png)$/.test(url)
 
   _normalizeURL: (url) ->
-    # For now identical to link-tooltip but will change when we allow data uri
-    # url = 'http://' + url unless /^https?:\/\//.test(url)
-    return url
+    url = new URL(url)
+    if /youtube.com$/.test(url.hostname)
+      @provider = 'youtube'
+      this._normalizeYoutubeURL(url)
+    else if /vimeo.com$/.test(url.hostname)
+      @provider = 'vimeo'
+      this._normalizeVimeoURL(url)
+    else if /dailymotion.com$/.test(url.hostname)
+      @provider = 'dailymotion'
+      this._normalizeDailymotionURL(url)
 
+  _normalizeVimeoURL: (url) ->
+    if url.protocol == "https:"
+      vimeoID = url.toString().substring(18)
+    else
+      vimeoID = url.toString().substring(17)
+    @embedURL = "#{url.protocol}//player.vimeo.com/video/#{vimeoID}"
+
+  _normalizeYoutubeURL: (url) ->
+    if url.toString().length > 28
+      queryString = {}
+      url.toString().replace(new RegExp("([^?=&]+)(=([^&]*))?", "g"), ($0, $1, $2, $3) -> queryString[$1] = $3)
+      youtubeID = queryString['v']
+    else
+      youtubeID = youtubeURL.substring(16)
+    @embedURL = "http://www.youtube.com/embed/#{youtubeID}"
+
+  _normalizeDailymotionURL: (url) ->
+    dailymotionID = if (m = url.toString().match(new RegExp("\/video\/([^_?#]+).*?"))) then m[1] else "void 0"
+    @embedURL = "http://www.dailymotion.com/embed/video/#{dailymotionID}"
 
 Quill.registerModule('video-tooltip', VideoTooltip)
 module.exports = VideoTooltip
