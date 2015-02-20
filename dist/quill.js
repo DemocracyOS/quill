@@ -9323,6 +9323,7 @@ VideoTooltip = (function(_super) {
     this.options = _at_options;
     this.options = _.defaults(this.options, Tooltip.DEFAULTS);
     VideoTooltip.__super__.constructor.call(this, this.quill, this.options);
+    this.embedURL = '';
     this.preview = this.container.querySelector('.preview');
     this.textbox = this.container.querySelector('.input');
     dom(this.container).addClass('ql-video-tooltip');
@@ -9347,8 +9348,8 @@ VideoTooltip = (function(_super) {
   };
 
   VideoTooltip.prototype.insertVideo = function() {
-    var index, url;
-    url = this._normalizeURL(this.textbox.value);
+    var index;
+    this._normalizeURL(this.textbox.value);
     if (this.range == null) {
       this.range = new Range(0, 0);
     }
@@ -9356,7 +9357,7 @@ VideoTooltip = (function(_super) {
       this.preview.innerHTML = '<span>Preview</span>';
       this.textbox.value = '';
       index = this.range.end;
-      this.quill.insertEmbed(index, 'video', url, 'user');
+      this.quill.insertEmbed(index, 'video', this.embedURL, 'user');
       this.quill.setSelection(index + 1, index + 1);
     }
     return this.hide();
@@ -9381,6 +9382,7 @@ VideoTooltip = (function(_super) {
 
   VideoTooltip.prototype._preview = function() {
     var img;
+    this._normalizeURL(this.textbox.value);
     if (!this._matchVideoURL(this.textbox.value)) {
       return;
     }
@@ -9398,7 +9400,47 @@ VideoTooltip = (function(_super) {
   };
 
   VideoTooltip.prototype._normalizeURL = function(url) {
-    return url;
+    url = new URL(url);
+    if (/youtube.com$/.test(url.hostname)) {
+      this.provider = 'youtube';
+      return this._normalizeYoutubeURL(url);
+    } else if (/vimeo.com$/.test(url.hostname)) {
+      this.provider = 'vimeo';
+      return this._normalizeVimeoURL(url);
+    } else if (/dailymotion.com$/.test(url.hostname)) {
+      this.provider = 'dailymotion';
+      return this._normalizeDailymotionURL(url);
+    }
+  };
+
+  VideoTooltip.prototype._normalizeVimeoURL = function(url) {
+    var vimeoID;
+    if (url.protocol === "https:") {
+      vimeoID = url.toString().substring(18);
+    } else {
+      vimeoID = url.toString().substring(17);
+    }
+    return this.embedURL = url.protocol + "//player.vimeo.com/video/" + vimeoID;
+  };
+
+  VideoTooltip.prototype._normalizeYoutubeURL = function(url) {
+    var queryString, youtubeID;
+    if (url.toString().length > 28) {
+      queryString = {};
+      url.toString().replace(new RegExp("([^?=&]+)(=([^&]*))?", "g"), function($0, $1, $2, $3) {
+        return queryString[$1] = $3;
+      });
+      youtubeID = queryString['v'];
+    } else {
+      youtubeID = youtubeURL.substring(16);
+    }
+    return this.embedURL = "http://www.youtube.com/embed/" + youtubeID;
+  };
+
+  VideoTooltip.prototype._normalizeDailymotionURL = function(url) {
+    var dailymotionID, m;
+    dailymotionID = (m = url.toString().match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : "void 0";
+    return this.embedURL = "http://www.dailymotion.com/embed/video/" + dailymotionID;
   };
 
   return VideoTooltip;
