@@ -126,6 +126,51 @@
   cursor: pointer;
   text-decoration: none;
 }
+.ql-video-tooltip {
+  padding: 10px;
+  width: 300px;
+}
+.ql-video-tooltip:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.ql-video-tooltip a {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+}
+.ql-video-tooltip img {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.ql-video-tooltip .input {
+  box-sizing: border-box;
+  width: 100%;
+}
+.ql-video-tooltip .preview {
+  margin: 10px 0px;
+  position: relative;
+  border: 1px dashed #000;
+  height: 200px;
+}
+.ql-video-tooltip .preview span {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+}
 .ql-container {
   box-sizing: border-box;
   cursor: text;
@@ -935,6 +980,17 @@
   border: 1px solid #ccc;
   margin: 0px;
   padding: 5px;
+}
+.ql-snow .ql-video-tooltip a {
+  border: 1px solid #06c;
+}
+.ql-snow .ql-video-tooltip a.insert {
+  background-color: #06c;
+  color: #fff;
+}
+.ql-snow .ql-video-tooltip .preview {
+  border-color: #ccc;
+  color: #ccc;
 }
 .ql-snow a {
   color: #06c;
