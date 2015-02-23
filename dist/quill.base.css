@@ -164,6 +164,10 @@
   border: 1px dashed #000;
   height: 200px;
 }
+.ql-video-tooltip .preview iframe {
+  height: 196px;
+  width: 272px;
+}
 .ql-video-tooltip .preview span {
   display: inline-block;
   position: absolute;

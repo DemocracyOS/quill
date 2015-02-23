@@ -63,12 +63,12 @@ class VideoTooltip extends Tooltip
 
   _preview: ->
     this._normalizeURL(@textbox.value)
-    return unless this._matchVideoURL(@textbox.value)
-    if @preview.firstChild.tagName == 'IMG'
-      @preview.firstChild.setAttribute('src', @textbox.value)
+    # return unless this._matchVideoURL(@textbox.value)
+    if @preview.firstChild.tagName == 'IFRAME'
+      @preview.firstChild.setAttribute('src', @embedURL)
     else
-      img = document.createElement('img')
-      img.setAttribute('src', @textbox.value)
+      img = document.createElement('iframe')
+      img.setAttribute('src', @embedURL)
       @preview.replaceChild(img, @preview.firstChild)
 
   _matchVideoURL: (url) ->
