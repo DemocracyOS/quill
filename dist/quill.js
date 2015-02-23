@@ -6664,7 +6664,7 @@ Normalizer = (function() {
     while (curNode != null) {
       if ((dom.BLOCK_TAGS[curNode.tagName] != null) && curNode.tagName !== 'LI') {
         dom(curNode).isolate(lineNode.parentNode);
-        if ((dom.LIST_TAGS[curNode.tagName] == null) || !curNode.firstChild) {
+        if (((dom.LIST_TAGS[curNode.tagName] == null) || !curNode.firstChild) && curNode.tagName !== 'IFRAME') {
           dom(curNode).unwrap();
           Normalizer.pullBlocks(lineNode);
         } else {
