@@ -8113,7 +8113,7 @@ ImageTooltip = (function(_super) {
   ImageTooltip.prototype._onToolbar = function(range, value) {
     if (value) {
       if (!this.textbox.value) {
-        this.textbox.value = 'http://';
+        this.textbox.value = 'https://';
       }
       this.show();
       this.textbox.focus();
@@ -9431,13 +9431,13 @@ VideoTooltip = (function(_super) {
     } else {
       youtubeID = youtubeURL.substring(16);
     }
-    return this.embedURL = "http://www.youtube.com/embed/" + youtubeID;
+    return this.embedURL = url.protocol + "//www.youtube.com/embed/" + youtubeID;
   };
 
   VideoTooltip.prototype._normalizeDailymotionURL = function(url) {
     var dailymotionID, m;
     dailymotionID = (m = url.toString().match(new RegExp("\/video\/([^_?#]+).*?"))) ? m[1] : "void 0";
-    return this.embedURL = "http://www.dailymotion.com/embed/video/" + dailymotionID;
+    return this.embedURL = url.protocol + "//www.dailymotion.com/embed/video/" + dailymotionID;
   };
 
   return VideoTooltip;
