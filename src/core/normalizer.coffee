@@ -134,7 +134,7 @@ class Normalizer
   @pullBlocks: (lineNode) ->
     curNode = lineNode.firstChild
     while curNode?
-      if dom.BLOCK_TAGS[curNode.tagName]? and curNode.tagName != 'LI'
+      if dom.BLOCK_TAGS[curNode.tagName]? and curNode.tagName != 'LI' and curNode.tagName != 'IFRAME'
         dom(curNode).isolate(lineNode.parentNode)
         if (!dom.LIST_TAGS[curNode.tagName]? or !curNode.firstChild) and curNode.tagName != 'IFRAME'
           dom(curNode).unwrap()
