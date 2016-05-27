@@ -1,4 +1,4 @@
-/*! Quill Editor v0.19.8
+/*! Quill Editor v0.20.1
  *  https://quilljs.com/
  *  Copyright (c) 2014, Jason Chen
  *  Copyright (c) 2013, salesforce.com
@@ -213,6 +213,14 @@
 }
 .ql-editor u {
   text-decoration: underline;
+}
+.ql-editor a,
+.ql-editor b,
+.ql-editor i,
+.ql-editor s,
+.ql-editor u,
+.ql-editor span {
+  background-color: inherit;
 }
 .ql-editor img {
   max-width: 100%;
